@@ -1,0 +1,20 @@
+#include<AT89s8252.h>
+#define LED P1_0
+#define SW P0
+
+ void main()
+ {
+ char status,u,l;
+ LED=1;
+ SW=0XFF;
+	while(1)
+	{
+		status=~SW;
+		u=status>>4;
+		l=status&(0X0F);
+		if(u<=9&&l<=9)
+		LED=0;
+		else
+		LED=1;
+	}
+ }
